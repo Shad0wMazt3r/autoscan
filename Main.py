@@ -1,0 +1,38 @@
+import os
+import time
+site = input("Website:")
+cmd = ('curl -oL site.html '+site)
+failure = os.system(cmd)
+def clear():
+	cmd2 = ('clear')
+	failure2 = os.system(cmd2)
+clear()
+print("site saved as site.html")
+print("Doing reverse DNS lookup")
+cmd3 = ('nslookup '+site)
+failure3 = os.system(cmd3)
+def wait():
+	userip = input("Should We Wait? (y/n):")
+	if userip == "y": 
+		time.sleep(5)
+wait()
+clear()
+cmd4 = ('nmap -O '+site+' | grep Host')
+failure4 = os.system(cmd4)
+wait()
+clear()
+cmd5 = ('nmap -O '+site+' | grep OS')
+failure5 = os.system(cmd5)
+wait()
+clear()
+cmd6 = ('nmap -p- '+site)
+failure6 = os.system(cmd6)
+wait()
+clear()
+cmd7 = ('nmap --script=http-title '+site)
+failure7 = os.system(cmd7)
+wait()
+clear()
+cmd8 = ('whois '+site)
+failure8 = os.system(cmd8)
+
