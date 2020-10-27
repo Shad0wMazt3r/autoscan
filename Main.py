@@ -35,4 +35,7 @@ wait()
 clear()
 cmd8 = ('whois '+site)
 failure8 = os.system(cmd8)
-
+wait()
+clear()
+cmd9 = ('dirb https://'+site)
+failure9 = os.system(cmd9)
